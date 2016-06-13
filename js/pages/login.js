@@ -23,6 +23,7 @@ function LoginViewModel() {
             type: "POST",
             url: "userapi/login",
             dataType: 'json',
+            contentType : 'application/json',
             data: JSON.stringify({ username : self.username(), password : self.password()}),
             success: function() {
                 window.location.href("index.html");
