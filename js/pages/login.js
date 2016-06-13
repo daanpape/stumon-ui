@@ -25,6 +25,7 @@ function LoginViewModel() {
             contentType : 'application/json',
             data: JSON.stringify({ username : self.username(), password : self.password()}),
             success: function() {
+                console.log("Logon Ok");
                 window.location.href("index.html");
             },
             error: function (xhr) {
