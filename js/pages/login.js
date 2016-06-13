@@ -21,7 +21,7 @@ function LoginViewModel() {
     this.login = function() {
         $.ajax({
             type: "POST",
-            url: "userapi/v1/login",
+            url: "userapi/login",
             dataType: 'json',
             data: { username : self.username(), password : self.password()},
             success: function() {

@@ -1,5 +1,5 @@
 /**
- * HoWest StuMON - index.js 
+ * HoWest StuMON - scans.js 
  * (C) 2016 - Daan Pape
  * License: MIT
  */
@@ -11,13 +11,13 @@
 function IndexViewModel() {
     var self = this;
     
-    this.scanners = ko.observableArray([]);
+    this.scans = ko.observableArray([]);
     
     /**
-     * Update the online scanner list.
+     * Update the scans.
      */
-    this.updateOnlineScaners = function() {
-        $.getJSON('userapi/scanners', function(data) {
+    this.updateScans = function() {
+        $.getJSON('userapi/scans', function(data) {
             self.scanners(data);
         });
     };
@@ -38,7 +38,7 @@ $('document').ready(function() {
             }
         }
     });
-    viewModel.updateOnlineScaners();
+    viewModel.updateScans();
     
-    setInterval(viewModel.updateOnlineScaners, 1000);
+    setInterval(viewModel.updateScans, 250);
 });

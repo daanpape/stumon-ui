@@ -11,7 +11,7 @@
         <link href="css/bootstrap-dialog.min.css" rel="stylesheet">
         <link href="css/global.css" rel="stylesheet">
 
-        <title>Homepagina - Online scanners</title>
+        <title>Homepagina - Scans</title>
     </head>
     <body>
         <!-- Fixed navbar -->
@@ -38,21 +38,25 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Stumon online scanners</h1>
+                <h1>Stumon received scans</h1>
             </div>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Database ID</th>
                         <th>Reader ID</th>
+                        <th>Card</th>
+                        <th>Score</th>
                         <th>Last heartbeat</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: scanners">
+                <tbody data-bind="foreach: scans">
                     <tr>
                         <td data-bind="text: id"></td>
                         <td data-bind="text: reader_id"></td>
-                        <td data-bind="text: last_heartbeat"></td>
+                        <td data-bind="text: tag"></td>
+                        <td data-bind="text: score"></td>
+                        <td data-bind="text: scan_time"></td>
                     </tr>
                 </tbody>
             </table>
@@ -69,6 +73,6 @@
         <script src="js/libs/knockout.js"></script>
         <script src="js/libs/bootstrap.min.js"></script>
         <script src="js/libs/bootstrap-dialog.min.js"></script>
-        <script src="js/pages/index.js"></script>
+        <script src="js/pages/scans.js"></script>
     </body>
 </html>
