@@ -22,24 +22,37 @@ function LoginViewModel() {
         $.ajax({
             type: "POST",
             url: "userapi/login",
-            dataType: 'json',
             contentType : 'application/json',
             data: JSON.stringify({ username : self.username(), password : self.password()}),
             success: function() {
                 window.location.href("index.html");
             },
-            error: function () {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: "Kon niet aanmelden",
-                    message: "De gebruikersnaam en wachtwoord combinatie zijn niet correct.",
-                    buttons: [{
-                        label: 'Ok',
-                        action: function(dialog) {
-                            dialog.close();
-                        }
-                    }]
-                });
+            error: function (xhr) {
+                if(xhr.status == 403) {
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_DANGER,
+                        title: "Kon niet aanmelden",
+                        message: "De gebruikersnaam en wachtwoord combinatie zijn niet correct.",
+                        buttons: [{
+                            label: 'Ok',
+                            action: function(dialog) {
+                                dialog.close();
+                            }
+                        }]
+                    });
+                } else {
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_DANGER,
+                        title: "Kon niet aanmelden",
+                        message: "Er is een onbekende aanmeldfout opgetreden, probeer het later opnieuw",
+                        buttons: [{
+                            label: 'Ok',
+                            action: function(dialog) {
+                                dialog.close();
+                            }
+                        }]
+                    });
+                }
             }
         });    
     };
