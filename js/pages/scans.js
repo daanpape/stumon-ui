@@ -18,7 +18,7 @@ function IndexViewModel() {
      */
     this.updateScans = function() {
         $.getJSON('userapi/scans', function(data) {
-            self.scanners(data);
+            self.scans(data);
         });
     };
 }
