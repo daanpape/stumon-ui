@@ -35,6 +35,20 @@ function IndexViewModel() {
             }
         });
     };
+    
+    /**
+     * Delete the user session.
+     */
+    this.logout = function() {
+        $.ajax({
+            type: "DELETE",
+            url: "userapi/session",
+            contentType : 'application/json',
+            success: function() {
+                window.location.href = "login.html";
+            }
+        });
+    };
 }
 
 /**
@@ -48,7 +62,7 @@ $('document').ready(function() {
     $.ajaxSetup({
         error: function(xhr, textStatus, errorThrown){
             if(xhr.status === 403) {
-                window.location.href("login.html");
+                window.location.href = "login.html";
             }
         }
     });
