@@ -8,6 +8,7 @@
         <meta name="author" content="">
         <link rel="icon" href="/favicon.ico">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-dialog.min.css" rel="stylesheet">
         <style>
             body {
                 padding-top: 40px;
@@ -69,20 +70,25 @@
 
     <body>
         <div class="container">
-            <form class="form-signin whitebg">
+            <div class="form-signin whitebg">
                 <h2 class="form-signin-heading">StuMon - Aanmelden</h2>
                 <label for="inputEmail" class="sr-only">E-mailadres</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="E-mailadres" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="E-mailadres" required autofocus data-bind="value: username">
                 <label for="inputPassword" class="sr-only">Wachtwoord</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required data-bind="value: password">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Aangemeld blijven
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Aanmelden</button>
-            </form>
-
+                <button class="btn btn-lg btn-primary btn-block" data-bind="click: login">Aanmelden</button>
+            </div>
         </div>
+        
+        <script src="js/libs/jquery.js"></script>
+        <script src="js/libs/knockout.js"></script>
+        <script src="js/libs/bootstrap.min.js"></script>
+        <script src="js/libs/bootstrap-dialog.min.js"></script>
+        <script src="js/pages/login.js"></script>
     </body>
 </html>
