@@ -38,16 +38,17 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Stumon received scans</h1>
+                <h1>Ontvangen scans</h1>
             </div>
+            <button data-bind="click: clearScans">Verwijder scans</button>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Database ID</th>
-                        <th>Reader ID</th>
-                        <th>Card</th>
+                        <th>Scanner ID</th>
+                        <th>Kaart</th>
                         <th>Score</th>
-                        <th>Last heartbeat</th>
+                        <th>Ontvangsttijd</th>
                     </tr>
                 </thead>
                 <tbody data-bind="foreach: scans">

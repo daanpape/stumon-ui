@@ -21,6 +21,20 @@ function IndexViewModel() {
             self.scans(data);
         });
     };
+    
+    /**
+     * Clear the scan database
+     */
+    this.clearScans = function() {
+        $.ajax({
+            type: "DELETE",
+            url: "userapi/scans",
+            contentType : 'application/json',
+            success: function() {
+                self.scans([]);
+            }
+        });
+    };
 }
 
 /**
